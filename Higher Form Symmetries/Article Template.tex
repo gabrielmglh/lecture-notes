@@ -8,34 +8,24 @@
 \geometry{margin=1in} 
 
 %%%%%%%%TITLE%%%%%%%%
-\title{Your Article Title}
-\author{Your Name}
-\date{\today}
+\title{Notes on Higher-Form Symmetries}
+\author{Gabriel C. Magalhães\footnote{gabriel.capelini@uel.br}}
+\date{2025}
 
 \begin{document}
-
 \maketitle
 
-\section{Introduction}
-This is the introduction to your article.
+\section*{Introduction}
+Higher-form symmetries are the straight generalization of our “usual” notion of symmetries. It consists in assigning a topological meaning to symmetry operators and extending the parameter of the transformation to extended objects such as lines, surfaces and so on. Below we rephrase our notion of symmetries in terms of topological operators in a way that we can generalize it. 
 
-\section{Equations}
-Here's an example of using physical symbols and equations:
-
-The speed of light in a vacuum, \(c\), is approximately \SI{3e8}{\meter\per\second}. 
-The famous equation, \(E=mc^2\), relates energy (\(E\)), mass (\(m\)), and the speed of light (\(c\)).
-
-\begin{equation}
-    E = mc^2
-\end{equation}
-
-You can also use the \texttt{physics} package to simplify notation, like this:
-
-\begin{equation}
-    \vb{F} = m \vb{a}
-\end{equation}
-
-\section{Conclusion}
-This is the conclusion of your article.
+\section*{Symmetry Operators as Topological Operators}
+We’ve saw that in terms of differential forms, the conservation law is written as
+\begin{equation*}
+	d\star j=0,
+\end{equation*}
+where $j$ is the current 1-form and $\star:\Lambda^p\to \Lambda^{D-p}$   is the Hodge star map that take a p-form and associates it to a $(D-p)$-form. Thus the conserved charge was defined as
+\begin{equation*}
+	Q\equiv\int d^{D-1}x\;j^0.
+\end{equation*}
 
 \end{document}
