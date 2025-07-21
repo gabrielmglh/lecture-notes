@@ -1,0 +1,41 @@
+\documentclass{article}
+
+%%%%%%%%PACKAGES%%%%%%%%
+\usepackage{amsmath} 
+\usepackage{siunitx} 
+\usepackage{physics}
+\usepackage{geometry}
+\geometry{margin=1in} 
+
+%%%%%%%%TITLE%%%%%%%%
+\title{Your Article Title}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This is the introduction to your article.
+
+\section{Equations}
+Here's an example of using physical symbols and equations:
+
+The speed of light in a vacuum, \(c\), is approximately \SI{3e8}{\meter\per\second}. 
+The famous equation, \(E=mc^2\), relates energy (\(E\)), mass (\(m\)), and the speed of light (\(c\)).
+
+\begin{equation}
+    E = mc^2
+\end{equation}
+
+You can also use the \texttt{physics} package to simplify notation, like this:
+
+\begin{equation}
+    \vb{F} = m \vb{a}
+\end{equation}
+
+\section{Conclusion}
+This is the conclusion of your article.
+
+\end{document}
