@@ -10,6 +10,8 @@
 \usepackage{float}
 \geometry{margin=1in} 
 
+\newtheorem{definition}{Definition}
+
 %%%%%%%%TITLE%%%%%%%%
 \title{Notes on Higher-Form Symmetries}
 \author{Gabriel C. Magalhães\footnote{gabriel.capelini@uel.br}}
@@ -86,7 +88,7 @@ Let   $U(S^{D-1})$ be an operator defined over a $(D-1)$-sphere.  As we have see
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{figures/linking.png}
-\caption{Taken from Bhardwaj}
+\caption{Taken from \cite{Bhardwaj}.}
 \end{figure}
 he operator $U(S^{D-1})$ links with $\mathcal{O}(x)$ then we deform it until it no longer links. Then we can deform the $S^{D-1}$ to a point and the reminiscent operator is what we call $\mathcal{O}'(x).$ The mathematical expression in this case is 
 $$
@@ -175,7 +177,7 @@ The action of the operator $U_g$ over $\mathcal{O}$ is represented below
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.4]{figures/linking2.png}
-	\caption{Taken from Bhardwaj}
+	\caption{Taken from \cite{Bhardwaj}.} 
 \end{figure}
 The composition of the group induces a composition of those functions $\phi(g)$, 
 $$
@@ -185,8 +187,37 @@ Therefore the functions $\phi(g)$ form a 1-dimensional representation of the $p$
 
 We can easily generalize the result we have seen before for the Ward identity in terms of $p$-forms. For some  charged operator $\mathcal{O}(\Sigma_p)$ with charge $q\in\mathbb{Z}$ we have
 $$
-(d\star j)\mathcal{O}(\Sigma_D)=\delta^{D-p}(\Sigma_p)\mathcal{O}(\Sigma_D)
+(d\star j)\mathcal{O}(\Sigma_D)=q\delta^{D-p}(\Sigma_p)\mathcal{O}(\Sigma_D)
 $$
-where $\delta^{D-p}(\Sigma_p)$  is the Poincaré dual of the delta function defined on $\Sigma_D$.
-\section*{Discrete Gauge Symmetries }
+where $\delta^{D-p}(\Sigma_p)$  is the Poincaré dual of the delta function defined on $\Sigma_D$. Hence, for extended operators we have 
+$$
+U_g(S^{D-1})\mathcal{O}(\Sigma_p)=\exp(i\alpha q)\mathcal{O}(S^{D-1}).
+$$
+As an example, we can take an $U(1)$ gauge theory in $D$ dimensions. Maxwell theory is obtained by setting $D=4$. 
+\subsubsection*{U(1) Gauge Theory in $D$ dimensions} 
+\section*{Discrete Gauge Symmetries}
+Let $A$ be a $U(1)$ gauge field. We have that 
+$$
+F=dA\Rightarrow dF=0.
+$$
+The Noether current then is $\star F$.  The conserved charge is 
+$$
+Q^m=\int_{\Sigma_2}i\alpha F,
+$$
+and the unitary operator is 
+$$
+U_g^m(\Sigma_2)=\exp\left(i\alpha\int_{\Sigma_2}F\right).
+$$
+\subsection*{Screening}
+\begin{definition}
+	A $p\geq 1$-dimensional operator $\mathcal{O}_p$ can be screened into another operator $\mathcal{O}'_p$ if there exists a $(p-1)$-dimensional operator $\mathcal{O}_{p-1}$ that can be inserted between $O_p$ and $O_p'$. 
+	
+	If $\mathcal{O}_p$ can be screened to the identity we say that it was completely screened. 
+\end{definition}
+\textit{Screening implies in the same charges.} Note that if two operators $\mathcal{O}_p$ and $\mathcal{O}'_p$ are screened, the can be topologically deformed into one another. This implies that the charges measured by the symmetry operator must be the same. Since the charge is given by a phase, di
+
+
+
+\bibliography{refs.bib}
+\bibliographystyle{ieeetr}
 \end{document}
