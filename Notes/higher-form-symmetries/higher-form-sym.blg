@@ -2,51 +2,51 @@ This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: higher-form-sym.aux
 Case mismatch error between cite keys bhardwaj and Bhardwaj
----line 4 of file higher-form-sym.aux
+---line 17 of file higher-form-sym.aux
  : \citation{bhardwaj
  :                   }
 I'm skipping whatever remains of this command
 The style file: ieeetr.bst
 Database file #1: refs.bib
-You've used 1 entry,
+You've used 3 entries,
             1876 wiz_defined-function locations,
-            482 strings with 3684 characters,
-and the built_in function-call counts, 226 in all, are:
-= -- 11
-> -- 23
+            494 strings with 3944 characters,
+and the built_in function-call counts, 490 in all, are:
+= -- 36
+> -- 31
 < -- 0
-+ -- 8
-- -- 7
-* -- 19
-:= -- 46
-add.period$ -- 1
-call.type$ -- 1
-change.case$ -- 1
++ -- 12
+- -- 9
+* -- 33
+:= -- 88
+add.period$ -- 4
+call.type$ -- 3
+change.case$ -- 3
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 4
-empty$ -- 19
-format.name$ -- 7
-if$ -- 46
+cite$ -- 3
+duplicate$ -- 16
+empty$ -- 52
+format.name$ -- 9
+if$ -- 110
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 6
-num.names$ -- 1
-pop$ -- 7
+int.to.str$ -- 3
+missing$ -- 1
+newline$ -- 13
+num.names$ -- 3
+pop$ -- 16
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 4
+skip$ -- 9
 stack$ -- 0
 substring$ -- 0
-swap$ -- 0
+swap$ -- 1
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 1
-width$ -- 2
-write$ -- 9
+while$ -- 3
+width$ -- 4
+write$ -- 27
 (There was 1 error message)
