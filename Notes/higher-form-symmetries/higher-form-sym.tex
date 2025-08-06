@@ -2,6 +2,7 @@
 
 %%%%%%%%PACKAGES%%%%%%%%
 \usepackage{amsmath} 
+\usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{siunitx} 
 \usepackage{physics}
@@ -23,7 +24,7 @@
 \maketitle
 
 \begin{abstract}
-These notes present  my current understanding of higher-form symmetries and are intended for pedagogical purposes. They are continuously updated as I learn more about the subject and are based on the references listed below.
+These notes present  my current understanding of higher-form symmetries and are intended for pedagogical purposes. They are continuously updated as I learn more about the subject and are based on the references listed in references section.
 \end{abstract}
 
 \tableofcontents
@@ -179,8 +180,10 @@ which is denoted the fusion rule
 \end{equation}
 Moreover, the $p$-form symmetry group is abelian for $p\ge 1.$ This follows because we can deform an operator over another without ever crossing them. 
 
+\subsection{Action of $p$-form symmetries}
 The “usual” symmetries are now understood as 0-form symmetries, because the parameter of the transformation is a closed 0-form. The 0-form symmetries act over local operators, whose are supported on 0-dimensional regions. This is something we understand from standard QFT. We say then that the local operators are charged under the 0-form symmetry. We now wish to understand which objects are charged under p-form symmetries. It is straightforward to note that for $p\geq1,$ the $p$-form symmetry will never act over a local operator because we can always deform the operator in a way that it doesn’t intersect with the point. Therefore, the $p$-form symmetry acts over objects that have a dimension $q\geq p$.
-\subsection*{Case $q=p$}
+
+\subsection*{Case $p=q$}
 For this case, we define an operator $U_g(\Sigma_{D-p-1})$ over a $(D-p-1)$-dimensional manifold that links with some operator  $\mathcal{O}(M_p)$ defined over a $p$-dimensional manifold. Then we deform $U_g(\Sigma_{D-p-1})$  over $\mathcal{O}(M_p)$, leaving behind a local operator $\mathcal{O}(x)$ as before. We can assume that the only local operators that can be inserted along the manifold $M_p$ are multiples of the local identity operator. Thus, we may say that these multiples are complex numbers $\phi(g)$,  
 $$
 \phi(g)\in \mathbb{C}^{\times},\quad \mathbb{C}^{\times}\equiv \mathbb{C}\backslash\{\ 0 \}.
@@ -206,7 +209,7 @@ where $\delta^{D-p}(\Sigma_p)$  is the Poincaré dual of the delta function defi
 	U_g(S^{D-1})\mathcal{O}(\Sigma_p)=\exp(i\alpha q)\mathcal{O}(S^{D-1}).
 \end{equation}
 To summarize our results, let us study a $U(1)$ gauge theory in $D$ dimensions. 
-\subsection*{U(1) Gauge Theory in $D$ dimensions}
+\subsection{U(1) Gauge Theory in $D$ dimensions}
 Let $A$ be a 1-form $U(1)$ gauge field with 
 \begin{equation}\label{conservation law maxwell}
 	F=dA,
@@ -331,10 +334,268 @@ Note that $\phi(g)\in U(1)$ and $\varphi(\phi(g))\in (1)$, then
 		\includegraphics[scale=0.4]{figures/screening.png}
 		\caption{Taken from \cite{Bhardwaj}.}
 	\end{figure}
-If $\mathcal{O}_p$ can be screened to the identity we say that it was completely screened. 
+\noindent If $\mathcal{O}_p$ can be screened to the identity we say that it was completely screened. 
 \end{definition}
-\textit{Screening implies in the same charges.} Note that if two operators $\mathcal{O}_p$ and $\mathcal{O}'_p$ are screened, the symmetry operator 
+\textit{Screening implies in the same charges.} Note that if two operators $\mathcal{O}_p$ and $\mathcal{O}'_p$ are screened, we can deform the symmetry operator to measure the charge of $\mathcal{O}_p$ or the charge of  $\mathcal{O}'_p$. But since this deformation do not cross the regions where the operators are defined, this implies that the charges measured must be equal. The figure below represents this idea
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{figures/screening2.png}
+	\caption{Taken from \cite{Bhardwaj}.}
+\end{figure} 
+\noindent If two operators carry different charges, they cannot be screened into another. 
 
+
+As we have shown, the charges are given by phases. Each phase gives a different charges, that is 
+\begin{equation}
+	Q:G^{(p)}\to U(1).
+\end{equation}
+Therefore, the charge operators are elements of $\widehat{G}^{(p)}$. 
+Thus, we may define an equivalence class of operators with the equivalence relation $\sim$ characterized by wether these operators can be screened into one another, 
+\begin{equation*}
+	\mathcal{O}_p'\sim \mathcal{O}_p'.
+\end{equation*}
+We define the set $D_p$, where each element of this set is an equivalence class of screened operators. Therefore, there must exist $p$-form symmetries that distinguish different elements of $D_p$. The elements of $D_p$ are precisely the different charges that some operator may have, then 
+\begin{equation*}
+	\widehat{G}^{(p)}=D_p,
+\end{equation*}
+which implies
+\begin{equation*}
+	G^{(p)}=\widehat{D}_p.
+\end{equation*}
+Hence 
+\begin{equation}
+	Q(\mathcal{O}_p)=[\mathcal{O}_p]\in D_p.
+\end{equation}
+\subsubsection*{Example: Maxwell Theory in the presence of matter fields}
+We have seen in Maxwell theory that we have a 1-form symmetry and a $(D-3)$-form symmetry\footnote{Actually, Maxwell theory is specifically in $D=4$, in which we have two 1-form symmetries. But for simplicity we just keep calling this way.}. But in order to have those symmetries, we evaluated the theory in the vacuum, that is 
+\begin{equation*}
+	d\star j=0.
+\end{equation*}
+The question that one can ask is: what if we add matter? We can understand the behaviour using the concept of screening. 
+
+We have seen that in the vacuum case, the Pontryagin dual were 
+\begin{align*}
+	&\widehat{G}^1=\mathbb{Z},\\
+	&\widehat{G}^{D-3}=\mathbb{Z}.
+\end{align*}
+Therefore, 
+\begin{align*}
+	&D_1=\mathbb{Z},\\
+	&D_{D-3}=\mathbb{Z}.
+\end{align*}
+Suppose now we add a matter field $\phi(x)$ with charge $N\in\mathbb{Z}$. We may use the operator $\phi(x)$ to screen the Wilson lines
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{figures/screening_wilson.png}
+	\caption{Taken from \cite{Bhardwaj}}
+\end{figure}
+\noindent We say then that $\phi(x)$ is a \textit{non-genuine} operator. 
+\begin{definition}[Non-genuine operator]
+A non-genuine q-dimensional operator is an operator that is attached to a collection of $p>q$-dimensional operators. 
+\end{definition}
+We must introduce this non-genuine operators because $\phi(x)$ and $W_q(L)$ are not gauge invariant, 
+\begin{equation}
+	\phi(x)\to e^{iq\Lambda(x)}\phi(x)
+\end{equation}
+and 
+\begin{equation}
+	W_q(L)=\exp\left(2\pi iq\int_LA\right)\to\exp\left(2\pi iq\int_L A-\frac{d\Lambda}{2\pi}\right)=W_q\exp\left(-iq\int_{\partial L}\Lambda\right).
+\end{equation}
+Thus, assuming that $\partial L=x$, 
+\begin{equation}
+	W_q'(L)=e^{-iq\Lambda(x)}W_q(L).
+\end{equation}
+Therefore the product $\phi(x)W_q(L)$ is gauge invariant. With this, we can screen several Wilson lines by adding powers of $\phi^N$
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{figures/screening_wilson_n.png}
+	\caption{Screening of several Wilson lines using powers of $\phi$.}
+\end{figure}
+Thus, the group of all unscreened operators will be given by the total number of Wilson lines minus the number of screened Wilson lines,
+\begin{equation}
+	D_1=\frac{\mathbb{Z}}{N\mathbb{Z}}.
+\end{equation}
+Note that $Z\mathbb{Z}$ counts the number of screened Wilson lines because, since they have the same charge, the charges add up N times. Taking the Pontryagin dual 
+\begin{equation}
+	\widehat{D}_1=\widehat{\mathbb{Z}}_N=\mathbb{Z}_N=G^{(1)}. 
+\end{equation}
+Then, we conclude that, adding a matter field with charge N breaks the global 1-form symmetry $U(1)\to\mathbb{Z}_N$. The term ``break'' is not quite correct since gauge symmetries are not in fact symmetries. The correct term that can be found in the literature is that the symmetry groups is \textit{Higgsed-down} to $\mathbb{Z}_N$. Moreover, this does not happen with the $(D-3)$-form symmetry since this symmetry is associated with a codimension-2 operator that does not have a trivial link with the Wilson line. 
+\subsection{BF Theory}
+An interesting example that involves the application of this concepts is the \textit{BF theory.} For simplicity, we will treat this theory in 2+1 dimensions. 
+
+We start with a $U(1)$ gauge theory in the UV with a matter field with charge $N$. In the presence of matter, the symmetry is broken, by the Maxwell equations, which implies that 
+\begin{equation*}
+	\langle \phi\rangle=v. 
+\end{equation*} 
+As we have seen, the symmetry is higgsed down from $U(1)$ to $\mathbb{Z}_N$. We parametrize the field as 
+\begin{equation}
+	\phi = \rho e^{i\varphi}, 
+\end{equation}
+with $\langle\rho\rangle=v$. We have a gauge symmetry for $\varphi\to\varphi+N\alpha$, with $\alpha\sim\alpha+2\pi.$ The kinectic term in the Lagrangian is 
+\begin{equation}
+	\mathcal{L}=\partial_\mu\phi(\partial^\mu\phi)^*=(\partial_\mu\rho+i\rho\partial_\mu\varphi)(\partial^\mu\rho-i\rho\partial^\mu\varphi)=\partial_\mu\rho\partial^\mu\rho+\rho^2\partial_\mu\varphi\partial^\mu\varphi.
+\end{equation} 
+For our purposes, it is sufficient to consider the dynamics of the phase only. In the Higgs phase, we expand the field around its minimium
+\begin{equation}
+	\rho=\tilde{\rho}+v,
+\end{equation}
+and the gauge invariance requires the minimal coupling. Hence the Lagrangian becomes, 
+\begin{equation}
+	\mathcal{L}=(\tilde{\rho}+v)^2(\partial_\mu\varphi-NA_\mu)(\partial^\mu\varphi-NA^\mu).
+\end{equation}
+At low energies, we have that 
+\begin{equation}
+	\rho = v+\tilde{\rho}\sim v, 
+\end{equation}
+then 
+\begin{equation}
+	\mathcal{L}=v^2(\partial_\mu\varphi-NA_\mu)(\partial^\mu\varphi-NA^\mu).
+\end{equation}
+In terms of differential forms 
+\begin{equation}\label{not bf lagrangian}
+	\mathcal{L}=v^2(d\varphi-NA)\wedge\star(d\varphi-NA),
+\end{equation}
+where the Hodge star appears to get the correct dimensions when integrating. In the IR, $v^2\to\infty$. This ensures 
+\begin{equation}
+	A=\frac{1}{N}d\varphi,
+\end{equation}
+which implies 
+\begin{equation}
+	\int\frac{1}{N}d\varphi=\frac{1}{N}2\pi\Rightarrow\frac{1}{2\pi}\int A\in\frac{1}{N}\mathbb{Z}.
+\end{equation}
+in the Lagrangian (\ref{not bf lagrangian}), it is hard to understand the behaviour at low energies. In order to understand, we dualise the $\varphi$ field by introducing a 2-form $H$ with the equation of motion 
+\begin{equation}
+	\star H=4\pi iv^2(d\varphi-NA).
+\end{equation}
+Then the Lagrangian becomes, 
+\begin{equation}\label{almost bf lagrangian}
+	\mathcal{L}=\frac{1}{(4\pi)^2t^2}\star H\wedge H+\frac{i}{2\pi}H\wedge(d\varphi-NA).
+\end{equation}
+The equation of motion for $\varphi$ implies 
+\begin{equation}
+	dH=0,
+\end{equation}
+which means that the 2-form $H$ is closed an there exists a 1-form $B$ such that 
+\begin{equation}
+	H=dB. 
+\end{equation}
+We now can take the IR limit in (\ref{almost bf lagrangian}), 
+\begin{equation}
+	\mathcal{L}=\frac{i}{2\pi}dB\wedge(d\varphi-NA).
+\end{equation}
+Integrating by parts, we get the \textit{BF Lagrangian}
+\begin{equation}
+	\mathcal{L}_{BF}=\frac{iN}{2\pi}B\wedge dA. 
+\end{equation}
+From our construction, it is easy to realize that this is a $\mathbb{Z}_N$ discrete gauge theory. The gauge transformations then are 
+\begin{align}
+	&A\to A+d\alpha,\\
+	&B\to B+d\lambda.
+\end{align}
+The 1-form field $B$ is also Higgsed-down to $\mathbb{Z}_N$. To see this, consider the Lagrangian, 
+\begin{equation}
+	\mathcal{L}=\frac{1}{2e^2}F\wedge\star F-\frac{i}{2\pi}F\wedge(d\tilde{A}-NB).
+\end{equation}
+The second term appears because, since $B$ also has a gauge transformation, then there must exist some field $\tilde{A}$ charged under B. Integrating out $\tilde{A}$ we recover $F=dA$. The equation of motion for $F$ leads to 
+\begin{equation}
+	\star F=\frac{ie^2}{2\pi}(d\tilde{A}-NB).
+\end{equation}
+Substituting back in the Lagrangian we obtain 
+\begin{equation}
+	\mathcal{L}=-\frac{e^2}{8\pi^2}(d\tilde{A}-NB)\wedge\star(d\tilde{A}-NB).
+\end{equation}
+This Lagrangian has the same functional form of the Lagrangian that we have started with $\varphi$. Thus, this shows that the field $B$ also is Higgsed down from $U(1)$ to $\mathbb{Z}_N$. 
+
+Therefore, this theory possess two gauge symmetries 
+\begin{equation}
+		\begin{rcases}
+			\varphi\to\varphi+N\alpha,\;\text{with}\;A\to A+d\alpha\\
+			\tilde{A}\to\tilde{A}+N\lambda,\;\text{with}\;B\to B+d\lambda
+		\end{rcases}\text{Both Higgsed-down to }\mathbb{Z}_N
+\end{equation}
+Let us compute the conserved charges. From the action 
+\begin{equation}
+	S_{BF}=\frac{iN}{2\pi}\int B\wedge dA. 
+\end{equation}
+The equations of motion for $B$ leads to 
+\begin{equation}
+	dA=0\Rightarrow d\star(\star A)=0.
+\end{equation}
+Then, the conserved current is 
+\begin{equation}
+	Q=\int_\gamma A,
+\end{equation}
+where $\gamma$ is a curve. If we instead write 
+\begin{equation}
+	S_{BF}=-\frac{iN}{2\pi}\int A\wedge dB,
+\end{equation}
+and compute the equations of motion for $A$, we get 
+\begin{equation}
+	dB=0,
+\end{equation}
+with the conserved current given by 
+\begin{equation}
+	Q=\int_{\gamma'}B,
+\end{equation}
+where $\gamma'$ is also a curve. The unitary operators are 
+\begin{align}
+	&U_A(\gamma)=e^{i\int A},\\
+	&U_B(\gamma')=e^{i\int B}.
+\end{align}
+Therefore, the conserved quantities of the 2+1 BF theory are the Wilson lines for the $A$ and $B$ fields. Note that this theory, just as Chern-Simons, is purely topological, i.e, it does not involve the metric. 
+
+With this, we can understand the behaviour of the ground state. We rewrite the action in components 
+\begin{equation}
+	S_{BF}=\frac{iN}{2\pi}\int d^3x e^{\mu\nu\rho}B_\mu\partial_\nu A_\rho,
+\end{equation}
+and choose the gauge $A_0=B_0=0$. Thus 
+\begin{equation}
+	S_{BF}=\frac{iN}{2\pi}d^3x\;\epsilon^{ij}B_i\dot{A_j}=\frac{iN}{2\pi}\int d^3x(B_1\dot{A}_2-B_2\dot{A}_1).
+\end{equation}
+The canonical momenta are 
+\begin{equation}
+	\begin{split}
+		&\Pi_1^B=\Pi_2^B=0,\\
+		&\Pi_1^A=\frac{\partial \mathcal{L}}{\partial \dot{A}_1}=-\frac{iN}{2\pi}B_2,\\
+		&\Pi_2^A=\frac{\partial \mathcal{L}}{\partial \dot{A}_2}=\frac{iN}{2\pi}B_1.
+	\end{split}
+\end{equation}
+And the commutation relations 
+\begin{equation}
+	\comm{A_i(x)}{\Pi_j^A(y)}=i\delta_{ij}\delta(x-y),
+\end{equation}
+lead to 
+\begin{equation}
+	\begin{split}
+		&\comm{A_1(x)}{B_2(y)}=-\frac{2\pi}{N}\delta(x-y),\\
+		&\comm{A_2(x)}{B_1(y)}=\frac{2\pi}{N}\delta(x-y),\\
+		&\comm{A_1(x)}{\Pi_2^A(y)}=\comm{A_2(x)}{\Pi_1^A(y)}=0.
+	\end{split}
+\end{equation}
+This implies that $W^A$ and $W^B$ do not commute. To see this, take the product,
+\begin{equation}
+	W_1^AW_2^B=\exp\left(i\int dx^1A_1\right)\exp\left(i\int dy^2 B_2\right),
+\end{equation}
+and use BCH formula 
+\begin{equation}
+	\begin{split}
+		W_1^AW_2^B&=\exp\left(i\int dx^1A_1+i\int dy^2B_2+\frac{1}{2}dx^1dy^2\comm{A_1}{B_2}\right)\\
+		&=W_2^BW_1^A\exp\left(-\frac{2\pi i}{N}\right)\int dx^1dy^2\delta^2(x-y).
+	\end{split}
+\end{equation}
+Hence 
+\begin{equation}\label{non commutation wilson lines}
+	W_1^AW_2^B=e^{-\frac{2\pi i}{N}}W_2^BW_1^A. 
+\end{equation}
+On the other hand, since $W^A$ and $W^B$ are symmetries, they commute with the Hamiltonian. Therefore the energy eigenstates are also eigenstates of $W^A$ and $W^B$, but it cannot be the same eigenstate for both, since $W^A$ and $W^B$ are do not commute. This reveals that our theory has a degeneracy. To see how degenerate it is, apply an energy eigenstate $|n\rangle$ in (\ref{non commutation wilson lines}), 
+\begin{equation}\label{non commutation wilson lines}
+	W_1^AW_2^B|n\rangle=e^{-\frac{2\pi i}{N}}W_2^BW_1^A|n\rangle=\omega^Ae^{-\frac{2\pi i}{N}}W_2^B|n\rangle, 
+\end{equation}
+where $\omega^A$ is the eigenvalue of $W_1^A$. Now apply $W_2^B$ N times in this equation. We can use the commutation relation to change the order of the operators and each time we do this, we get a phase, obtaining 
+\begin{equation}
+	W_1^A(W_2^B)^N|n\rangle=\omega^A(W_2^B)^N|n\rangle.
+\end{equation}
+This shows that after N applications, $W_2^B$ becomes an eigenstate of $W_1^A$ and therefore we no longer have a degeneracy. This shows that this degeneracy is of order N.
 \nocite{*}
 \bibliography{refs.bib}
 \bibliographystyle{ieeetr}
