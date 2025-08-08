@@ -1,0 +1,61 @@
+\documentclass{article}
+
+%%%%%%%%PACKAGES%%%%%%%%
+\usepackage{amsmath} 
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{siunitx} 
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{url}
+\geometry{margin=1in} 
+
+\newtheorem{definition}{Definition}
+
+%%%%%%%%TITLE%%%%%%%%
+\title{Introdução à Teoria de Grupos}
+\author{Gabriel C. Magalhães\footnote{gabriel.capelini@uel.br}}
+\date{2025}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Essas notas foram escritas como material de apoio para um minicurso ministrado na XXIX Semana da Física UEL e são baseadas principalmente em \cite{jakob}. 
+\end{abstract}
+
+\tableofcontents
+\pagebreak
+
+\section{Introdução}
+\subsection{Simetrias}
+
+\subsection{Definição de grupo}
+Um grupo é um conjunto $G$ com um mapa $cdot$ que satisfaz as seguintes propriedades:  
+\begin{itemize}
+	\item \textbf{Fechamento:} Para todo $g,g'\in G,\; g\cdot g'\in G.$ 
+	\item \textbf{Identidade:} Existe um elemento $e\in G$ tal que para todo $g\in G$, $g\cdot e=e\cdot g = g$. Chamamos esse elemento de \textbf{identidade. }
+	\item \textbf{Elemento inverso}: Para todo $g\in G$, existe $g'\in G$ tal que $g\cdot g'=g'\cdot g = e$. Chamamos esse elemento de \textbf{elemento inverso} e o denotamos por $g'\equiv g^{-1}$. 
+	\item \textbf{Associatividade:} Para todo $g_1,g_2,g_3\in G,(g_1\cdot g_2)\cdot g_3=g_1\cdot(g_2\cdot g_3).$
+\end{itemize}
+\section{Rotações em duas dimensões}
+\subsection{Números complexos}
+\section{Rotações em três dimensões}
+\subsection{Quaternions}
+\section{Álgebra de Lie}
+\subsection{Geradores}
+\subsubsection{Geradores do grupo SO(3)}
+\subsubsection{Geradores do grupo SU(2)}
+\section{Teoria de Representação}
+\subsection{Representações do grupo SU(2)}
+\section{Grupo de Lorentz}
+
+
+\pagebreak
+\nocite{*}
+\bibliography{refs.bib}
+\bibliographystyle{ieeetr}
+\end{document}
