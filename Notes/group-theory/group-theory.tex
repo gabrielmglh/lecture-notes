@@ -12,6 +12,7 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{dsfont}
 \geometry{margin=1in} 
 
 \newtheorem{definition}{Definição}
@@ -57,7 +58,7 @@ Veja que a transformação que aplicamos foi uma rotação. Porém, é notável 
 	\includegraphics[scale=0.4]{figures/square90.png}
 	\caption{Quadrado rotacionado de $90^{\circ}$. Fonte:\cite{jakob} }
 \end{figure}
-Verificamos que não é possível dizer se ele foi rotacionado ou não. Para entender melhor isso, suponha que você feche o olho e então nós façamos essa rotação de $90^{\circ}$. Após você abrir os olhos novamente, você acreditaria que o quadrado está da mesma forma. Isso é o que chamamos de uma \textit{simetria}. 
+Verificamos que não é possível dizer se ele foi rotacionado ou não. Para entender melhor isso, suponha que você feche os olhos e então nós façamos essa rotação de $90^{\circ}$. Após você abrir os olhos novamente, você acreditaria que o quadrado está da mesma forma. Isso é o que chamamos de uma \textit{simetria}. 
 
 Nesse caso, no entanto, essa simetria é caracterizada como uma simetria \textit{discreta}, pois não é qualquer rotação que deixa o quadrado invariante, mas sim rotações múltiplas de $90^{\circ}$. 
 
@@ -76,15 +77,18 @@ Isso nos permite concluir algumas coisas.
 	\item Se compormos duas rotações, isto é, rodarmos de $20^{\circ}$ e depois rodarmos de $10^{\circ}$, isso equivale a uma rotação de $30^{\circ}$. Portanto, a composição de duas rotações também deve ser uma rotação. 
 	\item Podemos não fazer nenhuma rotação, o que equivale a um ângulo de rotação de $0^{\circ}$. Isso é o que chamamos de um elemento \textit{identidade.} Portanto, uma identidade sempre é uma simetria e então deve ser levada em consideração quando estivermos falando dessa caoleção de transformações. 
 	\item Nós tomamos uma rotação no sentido horário. Mas podemos muito bem tomar rotações no sentido anti-horário. Isso implica que se fizermos uma rotação de $45^{\circ}$ no sentido horário, podemos desafazê-la simplesmente rodando de $45^{\circ}$ no sentido anti-horário. Isso é o que chamamos de um elemento \textit{inverso.}
-	\item Por último, rodar de $20^{\circ}$ e depois de $10^{\circ}$ deve ser equivalente a rodar de $10^{\circ}$ e depois de $20^{\circ}$. Dizemos então que as rotações são \textit{associativas.}
+	\item Por último, rodar de $90^{\circ}$ seguida de uma rotação de $40^{\circ}$ seguida de uma rotação de $110^{\circ}$ deve ser equivalente a uma rotação de $130^{\circ}$ seguida de uma rotação de $110^{\circ}$, que deve ser equivalente a uma rotação de $90^{\circ}$ seguida de uma rotação de $150^{\circ}$. Dizemos então que as rotações são \textit{associativas.} Matematicamente esta ideia é representada por 
+	$$
+	R(110^{\circ})(R(40^{\circ})R(90^{\circ}))=R(110^{\circ})R(130^{\circ})=(R(110^{\circ})R(40^{\circ}))R(90^{\circ})=R(150^{\circ})R(90^{\circ})
+	$$
 \end{itemize}
 Dadas essas ideias intuitivas, veremos agora como as generalizamos matematicamente.  
 \subsection{Definição de grupo}
-Um grupo é um conjunto $G$ com um mapa $\cdot$ que satisfaz as seguintes propriedades:  
+Um grupo é um conjunto $G$ com um mapa $\cdot$ que é chamado de \textit{regra de composição}, que satisfaz as seguintes propriedades:  
 \begin{itemize}
 	\item \textbf{Fechamento:} Para todo $g,g'\in G,\; g\cdot g'\in G.$ 
 	\item \textbf{Identidade:} Existe um elemento $e\in G$ tal que para todo $g\in G$, $g\cdot e=e\cdot g = g$. Chamamos esse elemento de \textbf{identidade. }
-	\item \textbf{Elemento inverso}: Para todo $g\in G$, existe $g'\in G$ tal que $g\cdot g'=g'\cdot g = e$. Chamamos esse elemento de elemento\textbf{ inverso} e o denotamos por $g'\equiv g^{-1}$. 
+	\item \textbf{Elemento inverso}: Para todo $g\in G$, existe $g'\in G$ tal que $g\cdot g'=g'\cdot g = e$. Chamamos esse elemento de\textbf{ inverso} e o denotamos por $g'\equiv g^{-1}$. 
 	\item \textbf{Associatividade:} Para todo $g_1,g_2,g_3\in G,(g_1\cdot g_2)\cdot g_3=g_1\cdot(g_2\cdot g_3).$
 \end{itemize}
 Abaixo, vamos dar alguns exemplos de conjuntos simples que formam grupos, e como a regra de composição de dois elementos não precisa ser necessariamente uma multiplicação. 
@@ -137,8 +141,8 @@ Essas transformações, como vimos nos exemplos iniciais, são transformações 
 	P_y= \begin{pmatrix}
 		1 & 0 \\
 		0 & -1
-	\end{pmatrix}.
-\end{equation}
+	\end{pmatrix},
+\end{equation} em que $P_x$ é uma reflexão no eixo $x$ e $P_y$ é uma reflexão no eixo $y$. 
 Diferentemente de uma rotação, essa transformação inverte apenas um dos eixos de uma forma que não é contínua. Dessa forma, reflexões são transformações discretas. 
 
 Vamos verificar que de fato rotações formam um grupo. 
@@ -192,9 +196,9 @@ Matricialmente, o produto interno de dois vetores é multiplicar um vetor linha 
 \end{equation*}
 ou seja, para o módulo um vetor permanecer invariante sobre rotações, isso implica na condição 
 \begin{equation}\label{ortogonalidade}
-	R^TR=1,
+	R^TR=\mathds{1},
 \end{equation}
-em que 1 é a matriz identidade. Dizemos que essa é a condição de ortogonalidade é então as rotações formam o \textit{grupo ortogonal $O(2)$}, que é o grupo de todas matrizes $2\times2$ ortogonais. Porém, podemos verificar que as reflexões também são ortogonais. Se queremos exluir as reflexões e trabalhar com um grupo que envolve apenas as rotações, devemos trabalhar com um subgrupo de $O(2)$. Para isso, veja que, tomando o determinante de ambos lados da equação (\ref{ortogonalidade}), 
+em que $\mathds{1}$ é a matriz identidade. Dizemos que essa é a condição de ortogonalidade é então as rotações formam o \textit{grupo ortogonal $O(2)$}, que é o grupo de todas matrizes $2\times2$ ortogonais. Porém, podemos verificar que as reflexões também são ortogonais. Se queremos exluir as reflexões e trabalhar com um grupo que envolve apenas as rotações, devemos trabalhar com um subgrupo de $O(2)$. Para isso, veja que, tomando o determinante de ambos lados da equação (\ref{ortogonalidade}), 
 \begin{equation*}
 	\begin{split}
 		&\det(R^TR)=\det(1)=1\\
@@ -205,7 +209,7 @@ em que 1 é a matriz identidade. Dizemos que essa é a condição de ortogonalid
 \end{equation*}
 Ou seja, temos dois possíveis valores de determinantes para matrizes ortogonais, +1 e -1. A matrizes com determinante +1 são as rotações. Portanto, definimos o subgrupo de $O(2)$, $SO(2)$, em que $S$ significa ``special'' para denotar que essas matrizes tem determinante +1. Logo, as rotações satisfazem as seguintes propriedades
 \begin{itemize}
-	\item $R^TR=1$,
+	\item $R^TR=\mathds{1}$,
 	\item $\det(R)=1$.
 \end{itemize}
 \subsection{Rotações com números complexos}
