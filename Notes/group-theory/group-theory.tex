@@ -21,6 +21,7 @@
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 
+
 %%%%%%%%TITLE%%%%%%%%
 \title{Introdução à Teoria de Grupos}
 \author{Gabriel C. Magalhães\footnote{gabriel.capelini@uel.br}}
@@ -38,7 +39,10 @@ Essas notas foram escritas como material de apoio para um minicurso ministrado n
 
 \section{Introdução}
 \subsection{Simetrias}
-Entendemos uma simetria como uma invariância sobre um certo conjunto de transformações.\footnote{Para os mais avançados, transformações de calibre também se encaixam nessa definição porém não são consideradas simetrias mas sim redundâncias na teoria. Porém vamos deixar esses detalhes técnicos de lado.} Isto é, se após performarmos alguma transformação na nossa teoria e verificarmos que não houve mudança, dizemos que essa teoria é invariante sobre essa transformação. Abaixo, damos alguns exemplos intuitivos. 
+Um dos conceitos mais importantes da física é o de simetrias. Elas estão intimamente relacionadas com quantidades conservadas, via teorema de Noether\cite{lemos2007mecânica}. Além disso, simetrias podem ser espontâneamente quebradas, o que nos permite entender transições de fase da origem a partículas sem massa conhecidas como \textit{bósons de Goldstone}\cite{Beekman_2019}. Simetrias também podem conter \textit{anomalias}\cite{Arouca_2022} que estão relacionadas com violações de leis de conservação e dão informações interessantes sobre o espectro da teoria. 
+
+
+Mas afinal, o que é uma simetria? Entendemos uma simetria como uma invariância sobre um certo conjunto de transformações.\footnote{Para os mais avançados, transformações de calibre também se encaixam nessa definição porém não são consideradas simetrias mas sim redundâncias na teoria. Porém vamos deixar esses detalhes técnicos de lado.} Isto é, se após performarmos alguma transformação na nossa teoria e verificarmos que não houve mudança, dizemos que essa teoria é invariante sobre essa transformação. Abaixo, damos alguns exemplos intuitivos. 
 
 Veja o quadrado da figura abaixo. 
 \begin{figure}[H]
@@ -68,7 +72,7 @@ Outro exemplo que podemos usar é o do círculo.
 	\includegraphics[scale=0.5]{figures/circ.png}
 	\caption{Apenas um círculo. Fonte: \cite{jakob}}
 \end{figure}
-Nesse caso, é fácil perceber que qualquer rotação deixa o círculo invariante. Faça o mesmo experimento mental de fechar os olhos e então abri-los novamente. Independemente de qualquer rotação que façamos no círculos, você nunca será capaz de perceber se ele foi rotacionado ou não. 
+Nesse caso, é fácil perceber que qualquer rotação deixa o círculo invariante. Faça o mesmo experimento mental de fechar os olhos e então abri-los novamente. Independemente de qualquer rotação que façamos no círculo, você nunca será capaz de perceber se ele foi rotacionado ou não. 
 
 Nesse caso, dizemos que é uma simetria \textit{contínua}, pois o círculo é simétrico para quaisquer ângulos de rotação. 
 
@@ -104,7 +108,7 @@ Abaixo, vamos dar alguns exemplos de conjuntos simples que formam grupos, e como
 \begin{example}[Números inteiros sobre multiplicação]
 O conjunto de números inteiros $\mathbb{Z}$ não forma um grupo sobre a multiplicação.
 
-Isso segue facilmente quando consideramos o elemento inverso. Para os números reais, bastava inverter o número e teríamos o seu inverso. Porém, no caso dos inteiros, dado um inteiro $a$, o número $1/a$ não é inteiro. Portanto não existe um elemento inteiro que pode servir como inverso sobre a multiplicação.
+Isso segue facilmente quando consideramos o elemento inverso. Para os números reais, bastava inverter o número e teríamos o seu inverso. Porém, no caso dos inteiros, dado um inteiro $a$, o número $1/a$ não é inteiro. Portanto, não existe um elemento inteiro que pode servir como inverso sobre a multiplicação.
 \end{example}
 \begin{example}[Números inteiros sobre a adição]
 Tome o conjunto dos inteiros $\mathbb{Z}$ mas com a regra de composição sendo a adição $+$. 
@@ -178,20 +182,20 @@ que é justamente a matriz identidade.
 \end{itemize}
 As rotações tem uma característica muito importante. Elas deixam o tamanho de vetores invariantes. Isto é, uma vez que rodamos um vetor, não consideramos que é o mesmo vetor de antes, pois o que caracteriza um vetor é seu módulo, direção e sentido. Nesse caso, sua direção e sentido mudaram, porém não o seu módulo. Vamos entender as implicações disso. 
 
-O módulo de um vetor é calculado fazendo o produto interno desse vetor com ele mesmo. Podemos denotar o vetor após uma rotação por $\vec{v}'$. Logo, temos que 
+O módulo de um vetor é calculado fazendo o produto interno desse vetor com ele mesmo. Podemos denotar o vetor após uma rotação por $\vb{v}'$. Logo, temos que 
 \begin{equation}
-	\vec{v}'=R\vec{v}.
+	\vb{v}'=R\vb{v}.
 \end{equation} 
 Como o módulo desse vetor não muda, temos que 
 \begin{equation}
-	\vec{v}'\cdot \vec{v}'=\vec{v}\cdot \vec{v}.
+	\vb{v}'\cdot \vb{v}'=\vb{v}\cdot \vb{v}.
 \end{equation}
 Matricialmente, o produto interno de dois vetores é multiplicar um vetor linha por um vetor coluna, o que é equivalente a seu transposto. Logo, de outra forma 
 \begin{equation*}
 \begin{split}
-		&\vec{v}^T\cdot \vec{v}'=\vec{v}^T\cdot\vec{v}\\
-		&(R\vec{v})^T(R\vec{v})=\vec{v}^T\vec{v}\\
-		&\vec{v}^TR^TR\vec{v}=\vec{v}^T\vec{v},
+		&\vb{v}^T\cdot \vb{v}'=\vb{v}^T\cdot\vb{v}\\
+		&(R\vb{v})^T(R\vb{v})=\vb{v}^T\vb{v}\\
+		&\vb{v}^TR^TR\vb{v}=\vb{v}^T\vb{v},
 \end{split}
 \end{equation*}
 ou seja, para o módulo um vetor permanecer invariante sobre rotações, isso implica na condição 
@@ -213,8 +217,215 @@ Ou seja, temos dois possíveis valores de determinantes para matrizes ortogonais
 	\item $\det(R)=1$.
 \end{itemize}
 \subsection{Rotações com números complexos}
+Existe uma outra maneira de realizar rotações em duas dimensões por um ângulo $\theta$ usando \textit{números complexos} com módulo unitário. Veja que multiplicando. Um número complexo $z$ tem módulo unitário se 
+\begin{equation}
+	|z|=z^*z=1,
+\end{equation}
+em que $*$ denota o complexo conjugado. Esses números complexos unitários formam um grupos que chamamos de $U(1)$. Daqui pra frente, não vamos mais provar quais objetos formam grupos, já vamos partir do fato que eles são. 
+
+Vamos chamar esses números complexos de $U$ daqui pra frente. Podemos escrever um número complexo unitário como\footnote{A derivação disso pode ser encontrada no Apêndice B.4.2 de \cite{jakob}.}
+\begin{equation}
+	U=e^{i\theta}=\cos\theta+i\sin\theta, 
+\end{equation}
+em que $\theta$ é um número real. Veja que de fato
+\begin{equation}
+	(\cos\theta-i\sin\theta)(\cos\theta+i\sin\theta)=1.
+\end{equation}
+Esse número complexo atua sobre outros números complexos, rodando eles. Por exemplo, para o número 
+\begin{equation*}
+	z=3+5i. 
+\end{equation*}
+Vamos aplicar $U$ para realizar uma rotação de $90^{\circ}(\pi/2)$, 
+\begin{equation}
+	U(\theta=\pi/2)z=e^{i\pi/2}(3+5i)=(\underbrace{\cos(\pi/2)}_{=0}+i\underbrace{\sin(\pi/2)}_{=1})(3+5i)=3i-5. 
+\end{equation}
+Pictoricamente temos 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{figures/rotacao_numero_complexo.png}
+	\caption{Rotação de um número complexo. Fonte: \cite{jakob}.}
+\end{figure}
+Porém, as rotações anteriormente atuavam sobre vetores, aqui elas atuam sobre números complexos. Para isso conectar essas duas ideias, podemos \textit{representar}
+\begin{equation}\label{identificacoes}
+	\mathds{1}=\begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix},\;i=\begin{pmatrix}
+	0 & -1 \\
+	1 & 0
+	\end{pmatrix}, 
+\end{equation}
+de forma que satisfaçam 
+\begin{equation}
+	\mathds{1}^2=1,\; i^2=-1,\; 1\cdot i=i\cdot 1=i.
+\end{equation}
+Agora veja que, de fato 
+\begin{equation}
+	U=\cos\theta\mathds{1}+i\sin\theta=\begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix}\cos\theta+\begin{pmatrix}
+	0 & -1 \\
+	1 & 0
+	\end{pmatrix}\sin\theta=\begin{pmatrix}
+	\cos\theta & -\sin\theta \\
+	\sin\theta & \cos\theta
+	\end{pmatrix},
+\end{equation} 
+fazendo a identificação (\ref{identificacoes}) fomos capazes de \textit{representar} as rotações no plano em termos de números complexos. 
+
+Com essa representação, podemos escrever um número complexo arbitrário como 
+\begin{equation}
+	z=a\mathds{1}+ib=\begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix}a+\begin{pmatrix}
+	0 & -1 \\
+	1 & 0
+	\end{pmatrix}b=\begin{pmatrix}
+	a & -b \\
+	b & a
+	\end{pmatrix}. 
+\end{equation}
+Atuando uma rotação sobre o mesmo, 
+\begin{equation}
+	z'=\begin{pmatrix}
+		a' & -b' \\
+		b' & a'
+	\end{pmatrix}=\begin{pmatrix}
+		\cos\theta & -\sin\theta \\
+		\sin\theta & \cos\theta
+	\end{pmatrix}\begin{pmatrix}
+	a & -b \\
+	b & a
+	\end{pmatrix}=\begin{pmatrix}
+	a\cos\theta -b\sin\theta  & -b\cos\theta -a\sin\theta  \\
+	a\sin\theta +b\cos\theta  & -b\sin\theta  +a\cos\theta 
+	\end{pmatrix}	
+\end{equation}
+Comparando ambos os lados, 
+\begin{equation}\label{rotacao numero complexo}
+	\begin{split}
+		&a'=a\cos\theta-b\sin\theta \\
+		&b'=a\sin\theta+b\cos\theta. 
+	\end{split}
+\end{equation}
+Veja que uma rotação sobre um vetor bidimensiona arbitrário 
+\begin{equation*}
+	v=\begin{pmatrix}
+		a \\
+		b
+	\end{pmatrix},
+\end{equation*}
+leva a 
+\begin{equation}
+	\begin{pmatrix}
+		a' \\
+		b'
+	\end{pmatrix}=\begin{pmatrix}
+		\cos\theta & -\sin\theta \\
+		\sin\theta & \cos\theta
+	\end{pmatrix}\begin{pmatrix}
+	a \\
+	b
+	\end{pmatrix}=\begin{pmatrix}
+	a\cos\theta & -b\sin\theta \\
+	a\sin\theta & b\cos\theta
+	\end{pmatrix}.
+\end{equation}
+Este é o mesmo resultado obtido em (\ref{rotacao numero complexo}), portanto, encotnramos uma maneira fiel de representar as rotações no plano em termos de números complexos. Um termo um pouco mais sofisticado para isso é dizer que encontramos um \textit{isomorfismo} entre o grupos $U(1)$ e o grupos $SO(2)$. 
 \subsection{Rotações em três dimensões}
-\subsection{Rotações com quaternions}
+As matrizes que realizam rotações em 3 dimensões são 
+\begin{equation}
+	R_x(\theta)=\begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & \cos\theta & -\sin\theta \\
+		0 & \sin\theta & \cos\theta
+	\end{pmatrix},\;R_y(\theta)=\begin{pmatrix}
+	\cos\theta & 0 & \sin\theta \\
+	0 & 1 & 0 \\
+	-\sin\theta & 0 & \cos\theta
+	\end{pmatrix},\; R_z(\theta)=\begin{pmatrix}
+	\cos\theta & -\sin\theta & 0 \\
+	\sin\theta & \cos\theta & 0 \\
+	0 & 0 & 1
+	\end{pmatrix}.
+\end{equation}
+Essas matrizes atuam sobre vetores tridimensionais e também formam um grupo que chamamos de $SO(3)$. 
+
+Agora, estamos interessados em fazer o mesmo processo que fizemos anteriormente. Para isso, precisamos introduzir uma generalização para os números complexos que vimos na seção anterior. A primeira ideia seria pensar num número complexo em três dimensões mas isso não é possível pois a álgebra não seria fechada (vamos entender isso mais a frente) e além disso, o número de graus de liberdade não bate. Para uma rotação no plano, o número de parâmetros necessários era apenas um ângulo. Um número complexo unitário tem o mesmo número de graus de liberdade. Para uma rotação em 3 dimensões, o número de graus de liberdade é 3. Portanto, precisamos de um número complexo unitário que tenha 3 graus de liberdade. 
+
+Para realizar isso, introduzimos então 3 unidades complexas $\vb{i},\vb{j},\vb{k}$ que satisfazem, 
+\begin{equation}
+	\vb{i}^2=\vb{j}^2=\vb{k}^2=-1.
+\end{equation}
+Além disso, é preciso encontrar uma relação entre o produto cruzado dessas unidades complexas. Veja que escolhendo 
+\begin{equation}
+	\vb{i}\vb{j}\vb{k}=-1,
+\end{equation}
+já da conta disso pois, multiplicando por $\vb{k}$ de ambos lados,
+\begin{equation}
+	\vb{i}\vb{j}\underbrace{\vb{k}\vb{k}}_{=-1}=-\vb{k}\Rightarrow \vb{i}\vb{j}=\vb{k}.
+\end{equation}
+Nesse sentido que foi dito atrás que a álgebra para números complexos em 3 dimensões não seria fechada. Isto é, multiplicando dois números complexos, teriamos um terceiro elemento que não estaria definido na álgebra. Portanto, representamos um quaternion como, 
+\begin{equation}
+	q=a\mathds{1}+b\vb{i}+c\vb{j}+d\vb{k}.
+\end{equation}
+Analogamente ao que fizemos para o caso de $U(1)$, podemos representar as unidades complexas como 
+\begin{equation}
+	\mathds{1}=\begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix},\;\vb{i}=\begin{pmatrix}
+	0 & 1 \\
+	-1 & 0
+	\end{pmatrix},\;\vb{j}=\begin{pmatrix}
+	0 & i \\
+	i & 0
+	\end{pmatrix},\;\vb{k}=\begin{pmatrix}
+	i & 0 \\
+	0 & -i
+	\end{pmatrix}.
+\end{equation}
+Logo, um quaternion arbitrário pode ser representado como 
+\begin{equation}
+\begin{split}
+		q&=a\begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix}+b\begin{pmatrix}
+		0 & 1 \\
+		-1 & 0
+	\end{pmatrix}+c\begin{pmatrix}
+		0 & i \\
+		i & 0
+	\end{pmatrix}+d\begin{pmatrix}
+		i & 0 \\
+		0 & -i
+	\end{pmatrix},\\&=\begin{pmatrix}
+	a+id & b+ic \\
+	-b+ic & a-id
+	\end{pmatrix}.
+\end{split}
+\end{equation}
+A condição de unitariedade dos quaternions se traduz como 
+\begin{equation}
+	q^{\dagger}q=1\Rightarrow a^2+b^2+c^2+d^2=1.
+\end{equation}
+em que $\dagger$ significa tomar o transposto e depois o complexo conjugado da matriz. O transposto é a forma como multiplicamos a matriz (lembre-se que para multiplicar dois vetores, tínhamos que realizar o produto entre uma matriz linha e uma matriz coluna) e o conjugado precisa ser tomado para que isso retorne um número real. 
+
+Note que 
+\begin{equation}
+	det(q)=a^2+b^2+c^2+d^2. 
+\end{equation}
+Ou seja, os quaternions unitários, que agora representaremos por $U$ formam um grupo de matrizes $2\times 2$ que chamamos de $SU(2)$ e tem as seguintes condições 
+\begin{equation}
+\begin{split}
+	&U^{\dagger}U=1\\
+	&\det(U)=1. 
+\end{split}
+\end{equation}
+Assim como no grupo $SO(2)$ o $S$ denota ``special'' que traduz na condição do determinante unitário, e $U$ denota unitário, que é a primeira condição. 
 \section{Álgebra de Lie}
 \subsection{Geradores}
 \subsubsection{Geradores do grupo SO(3)}
