@@ -31,7 +31,7 @@
 \maketitle
 
 \begin{abstract}
-Essas notas foram escritas como material de apoio para um minicurso ministrado na XXIX Semana da Física UEL e são baseadas principalmente em \cite{jakob}. 
+Essas notas foram escritas como material de apoio para um minicurso ministrado na XXIX Semana da Física da Universidade Estadual de Londrina que ocorreu em outubro de 2025. Esse minicurso é uma introdução concisa e pedagógica para este tópico e cobre os assuntos de simetrias, rotações, álgebras de Lie e teoria de repesentações. Para um maior aprofundamento e compreensão desses tópicos, é recomendado o leitor consultar as referências. 
 \end{abstract}
 
 \tableofcontents
@@ -129,7 +129,7 @@ Isso mostra que, de fato, a regra de composição nem sempre será uma multiplic
 \section{Rotações}
 Esta seção será dedicada a compreensão de um grupo extremamente importante na física: o grupo de rotações. Começaremos discutindo o caso mais simples que são rotações no plano, e depois discutiremos como realizá-las de outra maneira, usando números complexos. Após isso, vamos falar sobre rotações em 3 dimensões e como realizá-las utilizando um ``análogo'' aos números complexos, porém em 4 dimensões, chamados de \textit{quaternions.}
 \subsection{Rotações em duas dimensões}
-A matriz de rotação em duas dimensões é representada\footnote{Memorize esse termo pois vai ser importante mais tarde.} por \textcolor{red}{(depois eu vou colocar a dedução dela aqui e tentar fazer na aula se der tempo)},
+A matriz de rotação em duas dimensões é representada\footnote{Memorize esse termo pois vai ser importante mais tarde.} por,
 \begin{equation}\label{rotação 2d}
 	R(\theta)=\begin{pmatrix}
 		\cos\theta & -\sin\theta \\
@@ -355,7 +355,7 @@ Essas matrizes atuam sobre vetores tridimensionais e também formam um grupo que
 
 Agora, estamos interessados em fazer o mesmo processo que fizemos anteriormente. Para isso, precisamos introduzir uma generalização para os números complexos que vimos na seção anterior. A primeira ideia seria pensar num número complexo em três dimensões mas isso não é possível pois a álgebra não seria fechada (vamos entender isso mais a frente) e além disso, o número de graus de liberdade não bate. Para uma rotação no plano, o número de parâmetros necessários era apenas um ângulo. Um número complexo unitário tem o mesmo número de graus de liberdade. Para uma rotação em 3 dimensões, o número de graus de liberdade é 3. Portanto, precisamos de um número complexo unitário que tenha 3 graus de liberdade. 
 
-Para realizar isso, introduzimos então 3 unidades complexas $\vb{i},\vb{j},\vb{k}$ que satisfazem, 
+Para realizar isso, introduzimos então 3 unidades complexas $\vb{i},\vb{j},\vb{k}$ que satisfazem,\footnote{É importante notar que essas unidades complexas não são vetores. A notação é apenas para facilitar a compreensão.} 
 \begin{equation}
 	\vb{i}^2=\vb{j}^2=\vb{k}^2=-1.
 \end{equation}
@@ -409,30 +409,35 @@ Logo, um quaternion arbitrário pode ser representado como
 \end{split}
 \end{equation}
 A condição de unitariedade dos quaternions se traduz como 
-\begin{equation}
+\begin{equation}\label{norma quaternion}
 	q^{\dagger}q=1\Rightarrow a^2+b^2+c^2+d^2=1.
 \end{equation}
 em que $\dagger$ significa tomar o transposto e depois o complexo conjugado da matriz. O transposto é a forma como multiplicamos a matriz (lembre-se que para multiplicar dois vetores, tínhamos que realizar o produto entre uma matriz linha e uma matriz coluna) e o conjugado precisa ser tomado para que isso retorne um número real. 
 
 Note que 
 \begin{equation}
-	det(q)=a^2+b^2+c^2+d^2. 
+	det(q)=a^2+b^2+c^2+d^2,
 \end{equation}
-Ou seja, os quaternions unitários, que agora representaremos por $U$ formam um grupo de matrizes $2\times 2$ que chamamos de $SU(2)$ e tem as seguintes condições 
+o que implica de (\ref{norma quaternion}) que
+\begin{equation}
+	\det(q)=1.
+\end{equation}
+ Ou seja, os quaternions unitários, que agora representaremos por $U$, formam um grupo de matrizes $2\times 2$ que chamamos de $SU(2)$ e tem as seguintes condições 
 \begin{equation}
 \begin{split}
 	&U^{\dagger}U=1\\
 	&\det(U)=1. 
 \end{split}
 \end{equation}
-Assim como no grupo $SO(2)$ o $S$ denota ``special'' que traduz na condição do determinante unitário, e $U$ denota unitário, que é a primeira condição. 
+Assim como no grupo $SO(2)$, o $S$ denota ``special'' que traduz na condição do determinante unitário, e $U$ denota unitário, que é a primeira condição. 
+
+
 \section{Álgebra de Lie}
 \subsection{Geradores}
 \subsubsection{Geradores do grupo SO(3)}
 \subsubsection{Geradores do grupo SU(2)}
 \section{Teoria de Representação}
 \subsection{Representações do grupo SU(2)}
-\section{Grupo de Lorentz}
 
 
 \pagebreak
